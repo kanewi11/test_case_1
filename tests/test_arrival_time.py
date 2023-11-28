@@ -18,9 +18,8 @@ def test_init_with_valid_str():
                                               ('2:12', ValidationError),
                                               (None, ValidationError)])
 def test_init_with_validation_error(value, exception):
-    invalid_arrival_time_str = 'invalid_format'
     with pytest.raises(exception):
-        ArrivalTime(invalid_arrival_time_str)
+        ArrivalTime(value)
 
 
 def test_init_with_datetime():
