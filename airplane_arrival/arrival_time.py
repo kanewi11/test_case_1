@@ -48,8 +48,8 @@ class ArrivalTime:
 
     def __str__(self) -> str:
         if isinstance(self.arrival_time, timedelta):
-            return str(self.arrival_time)
-        return str(self.arrival_time.time())
+            return str(self.arrival_time)[:5]
+        return str(self.arrival_time.time())[:5]
 
     def __repr__(self):
         return f'{self.__class__.__name__}({repr(self.arrival_time)})'
