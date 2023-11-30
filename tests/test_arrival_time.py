@@ -16,7 +16,8 @@ def test_init_with_valid_str():
                                               (1.1, ValidationError),
                                               ('f12:12', ValidationError),
                                               ('2:12', ValidationError),
-                                              (None, ValidationError)])
+                                              (None, ValidationError),
+                                              (timedelta(hours=2, minutes=30), ValidationError)])
 def test_init_with_validation_error(value, exception):
     with pytest.raises(exception):
         ArrivalTime(value)
@@ -26,12 +27,6 @@ def test_init_with_datetime():
     dt = datetime.now()
     arrival_time = ArrivalTime(dt)
     assert arrival_time.arrival_time == dt
-
-
-def test_init_with_timedelta():
-    td = timedelta(hours=2, minutes=30)
-    arrival_time = ArrivalTime(td)
-    assert arrival_time.arrival_time == td
 
 
 def test_lt_operator():
