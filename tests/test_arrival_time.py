@@ -57,7 +57,7 @@ def test_subtraction_operator():
     arrival_time2 = ArrivalTime('12:30')
     result = arrival_time1 - arrival_time2
     assert isinstance(result, ArrivalTime)
-    assert str(result) == '1:30:00'
+    assert str(result) == '01:30'
 
 
 @pytest.mark.parametrize('value, exception', [(1, ArrivalTypeError),
@@ -73,4 +73,4 @@ def test_invalid_comparison_type(value, exception):
 
 def test_str_representation():
     arrival_time = ArrivalTime('15:45')
-    assert str(arrival_time) == '15:45:00'
+    assert str(arrival_time) == '15:45'
